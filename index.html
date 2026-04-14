@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>小乔生日快乐</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        .bg-container {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: url('image/xiaoqiao.jpg');
+            background-size: cover; background-position: center; background-repeat: no-repeat;
+            z-index: -1;
+        }
+        
+        .bg-container::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.1); /* 保持背景提亮效果 */
+        }
+        
+        body {
+            font-family: "微软雅黑", sans-serif;
+            background-color: #f0f0f0;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .content-main {
+            position: relative; z-index: 1;
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 40px 20px;
+            width: 100%;
+        }
+        
+        html { font-size: 15px; } /* 根字体从14px上调至15px，奠定增大基础 */
+        
+        h1, h2, h3, .name {
+            text-shadow: 
+                0 1px 2px rgba(0,0,0,0.8),
+                0 0 10px rgba(0,0,0,0.5); /* 保留阴影确保可读性 */
+        }
+        
+        h1 {
+            color: red;
+            font-size: 1.65rem; /* 原1.5rem，增大一号 */
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        
+        h2, h3 {
+            font-size: 1.4rem; /* 原1.25rem，增大一号 */
+            margin-bottom: 8px;
+            color: aqua;
+            line-height: 1.5;
+        }
+        
+        .name {
+            font-size: 2.5rem; /* 原2.2rem，增大一号 */
+            margin-top: 15px;
+            line-height: 1.1;
+        }
+        
+        /* 文字渐入动画 */
+        .content-main > * {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s forwards;
+        }
+        
+        h1 { animation-delay: 0.3s; }
+        h2 { animation-delay: 0.6s; }
+        .name { animation-delay: 0.9s; }
+        h3 { animation-delay: 1.2s; }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 响应式适配（同步增大） */
+        @media (max-width: 768px) {
+            html { font-size: 13px; }
+            .content-main { padding: 30px 15px; }
+            .name { font-size: 2.1rem; }
+        }
+        
+        @media (max-width: 480px) {
+            html { font-size: 11px; }
+            .content-main { padding: 20px 10px; }
+            .name { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-container"></div>
+    
+    <main class="content-main">
+        <h1>祝小乔生日快乐!</h1>
+        <h2>
+            生日快乐呀！愿你新的一岁<br>
+        眼里有光，心中有爱，身边有我陪伴，(其他人就算了)<br>
+            所行皆坦途，所愿皆成真。愿你历经山河，仍觉得人间值得<br>
+            保持热爱，奔赴下一场山海，平安喜乐，万事顺遂。
+        </h2>
+        <div class="name">爱你</div>
+        <h3>----木杉</h3>
+    </main>
+</body>
+</html>
